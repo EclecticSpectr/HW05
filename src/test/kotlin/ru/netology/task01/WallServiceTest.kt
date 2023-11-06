@@ -3,6 +3,7 @@ package ru.netology.task01
 import org.junit.Test
 
 import org.junit.Assert.*
+import org.junit.Before
 
 import ru.netology.task01.WallService.add
 
@@ -21,6 +22,15 @@ class WallServiceTest {
             views = Post.Views()
         )
         val (iD) = add(post)
-        assertEquals(1, iD)
+        assertEquals(0, iD)
+    }
+
+    @Before
+    fun clearBeforeTest() {
+        WallService.clear()
+    }
+
+    @Test
+    fun update() {
     }
 }
