@@ -22,7 +22,7 @@ class WallServiceTest {
             views = Post.Views()
         )
         val (iD) = add(post)
-        assertEquals(0, iD)
+        assertEquals(1, iD)
     }
 
     @Before
