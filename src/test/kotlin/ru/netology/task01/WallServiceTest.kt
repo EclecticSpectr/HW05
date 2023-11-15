@@ -32,7 +32,6 @@ class WallServiceTest {
 
     @Test
     fun testUpdateTrue() {
-        clearBeforeTest()
         val post = Post(
             1,
             1,
@@ -45,12 +44,11 @@ class WallServiceTest {
         )
         add(post)
         val result = WallService.update(post)
-        assertEquals(true, result)
+        assertTrue(result)
     }
 
     @Test
     fun testUpdateFalse() {
-        clearBeforeTest()
         val post = Post(
             1,
             1,
@@ -62,6 +60,6 @@ class WallServiceTest {
             views = Post.Views()
         )
         val result = WallService.update(post)
-        assertEquals(false, result)
+        assertFalse(result)
     }
 }
