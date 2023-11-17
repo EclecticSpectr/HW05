@@ -2,8 +2,8 @@ package ru.netology.task01
 
 data class Post(
     val iD: Int = 0,
-    val ownerId: Int,
-    val fromId: Int,
+    val ownerId: Int?,
+    val fromId: Int?,
     val date: Int,
     val text: String = "",
     val friendsOnly: Boolean = false,
