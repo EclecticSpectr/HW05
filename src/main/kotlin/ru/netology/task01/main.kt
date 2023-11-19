@@ -12,7 +12,8 @@ data class Post(
     val canEdit: Boolean = false,
     val markedAsAds: Boolean = false,
     val likes: Likes,
-    val views: Views
+    val views: Views,
+    val attachments: Array<Attachment>? = emptyArray()
 ) {
     data class Likes(
         val count: Int,
@@ -22,6 +23,10 @@ data class Post(
     )
 
     data class Views(val count: Int = 0)
+}
+
+interface Attachment {
+    val type: String
 }
 
 object WallService {
