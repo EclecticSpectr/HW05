@@ -15,8 +15,8 @@ class WallServiceTest {
             10,
             1,
             12,
-            111220,
-            "testADS",
+            date = 111220,
+            text = "testADS",
             markedAsAds = true,
             likes = Post.Likes(1, canLike = true),
             views = Post.Views()
@@ -36,8 +36,8 @@ class WallServiceTest {
             1,
             1,
             12,
-            111220,
-            "testADS",
+            date = 111220,
+            text = "testADS",
             markedAsAds = true,
             likes = Post.Likes(1, canLike = true),
             views = Post.Views()
@@ -53,8 +53,8 @@ class WallServiceTest {
             1,
             1,
             12,
-            111220,
-            "testADS",
+            date = 111220,
+            text = "testADS",
             markedAsAds = true,
             likes = Post.Likes(1, canLike = true),
             views = Post.Views()
