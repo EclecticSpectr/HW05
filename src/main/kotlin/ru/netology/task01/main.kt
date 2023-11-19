@@ -25,7 +25,7 @@ data class Post(
     data class Views(val count: Int = 0)
 }
 
-interface Attachment {
+sealed interface Attachment {
     val type: String
 }
 
