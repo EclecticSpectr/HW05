@@ -34,32 +34,32 @@ object WallService {
     }
 
     fun createComment(postId: Int, comment: Comment): Comment {
-        posts.let {
-            for (item in it) {
-                if (item.iD == postId) {
-                    comments += comment
-                    println("Комментарий добавлен")
-                    return comment
-                }
-                throw PostNotFoundException("Пост ID:$postId не найден")
+        if (posts.isEmpty()) {
+            throw EmptyArrayException("Не создано ни одного поста")
+        }
+        for (item in posts) {
+            if (item.iD == postId) {
+                comments += comment
+                println("Комментарий добавлен")
+                return comment
             }
         }
-        throw EmptyArrayException("Не создано ни одного поста")
+        throw PostNotFoundException("Пост ID:$postId не найден")
     }
 
     fun createReportComment(commentId: Int, reportComment: reportComment): Int {
-        comments.let {
-            for (item in it) {
-                if (item.id == commentId) {
-                    if (reportComment.reason !in 0..8) throw WrongReasonException("Неверная причина жалобы")
-                    reportComments += reportComment
-                    println("Жалоба добавлена")
-                    return 1
-                }
-                throw PostNotFoundException("Комментарий ID:$commentId не найден")
+        if (comments.isEmpty()) {
+            throw EmptyArrayException("Не создано ни одного комментария")
+        }
+        for (item in comments) {
+            if (item.id == commentId) {
+                if (reportComment.reason !in 0..8) throw WrongReasonException("Неверная причина жалобы")
+                reportComments += reportComment
+                println("Жалоба добавлена")
+                return 1
             }
         }
-        throw EmptyArrayException("Не создано ни одного комментария")
+        throw PostNotFoundException("Комментарий ID:$commentId не найден")
     }
 
     fun clear() {
